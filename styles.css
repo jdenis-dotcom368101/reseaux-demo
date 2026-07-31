@@ -1,0 +1,99 @@
+:root{
+  --ink:#14161a;
+  --mut:#6a7078;
+  --trait:#e2e5e9;
+  --fond:#f4f6f8;
+  --insta:#c1387a;
+  --li:#1a5f91;
+  --x:#14161a;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--fond);color:var(--ink);
+  font-family:'Inter',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+  font-size:15px;line-height:1.6;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+
+/* ---------- Bandeau d'honnêteté ---------- */
+.avis{
+  background:#14161a;color:#fff;font-size:12px;letter-spacing:.04em;
+  padding:11px 18px;text-align:center;
+}
+.avis strong{color:#f0b429}
+.avis a{color:#fff}
+
+.page{max-width:620px;margin:0 auto;padding:26px 18px 90px}
+
+/* ---------- En-tête de profil ---------- */
+.profil{
+  background:#fff;border:1px solid var(--trait);border-radius:14px;
+  padding:24px;display:flex;gap:18px;align-items:center;margin-bottom:22px;
+}
+.avatar{
+  width:66px;height:66px;border-radius:50%;flex:0 0 66px;
+  background:linear-gradient(135deg,#2b2b28,#6b5637);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:22px;letter-spacing:.04em;
+}
+.profil h1{margin:0;font-size:19px;letter-spacing:-.01em}
+.profil .handle{margin:2px 0 0;color:var(--mut);font-size:14px}
+.profil .stats{margin:8px 0 0;color:var(--mut);font-size:13px}
+
+/* ---------- Onglets réseaux ---------- */
+.reseaux{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}
+.reseaux a{
+  flex:1;text-align:center;text-decoration:none;background:#fff;
+  border:1px solid var(--trait);border-radius:10px;padding:11px 8px;
+  font-size:13px;font-weight:600;color:var(--mut);
+}
+.reseaux a:hover{border-color:var(--mut);color:var(--ink)}
+.reseaux a[aria-current="page"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* ---------- Publications ---------- */
+.post{
+  background:#fff;border:1px solid var(--trait);border-radius:14px;
+  overflow:hidden;margin-bottom:18px;
+}
+.post .tete{display:flex;gap:11px;align-items:center;padding:15px 18px}
+.post .tete .mini{
+  width:38px;height:38px;border-radius:50%;flex:0 0 38px;
+  background:linear-gradient(135deg,#2b2b28,#6b5637);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;
+}
+.post .tete .qui{font-weight:600;font-size:14px;line-height:1.3}
+.post .tete .quand{color:var(--mut);font-size:12px}
+.post .visuel img{width:100%;border-top:1px solid var(--trait);border-bottom:1px solid var(--trait)}
+.post .texte{padding:15px 18px 17px;white-space:pre-wrap;font-size:15px}
+.post .lien{
+  display:block;margin:0 18px 16px;padding:12px 14px;background:var(--fond);
+  border:1px solid var(--trait);border-radius:10px;
+  font-size:13px;color:var(--mut);text-decoration:none;word-break:break-all;
+}
+.post .lien:hover{border-color:var(--mut);color:var(--ink)}
+.post .barre{
+  display:flex;gap:26px;padding:11px 18px;border-top:1px solid var(--trait);
+  color:var(--mut);font-size:13px;
+}
+
+.ig .tete .qui,.ig .accent{color:var(--insta)}
+.li .tete .qui,.li .accent{color:var(--li)}
+
+.vide{
+  background:#fff;border:1px dashed var(--trait);border-radius:14px;
+  padding:38px 24px;text-align:center;color:var(--mut);
+}
+
+/* ---------- Sommaire ---------- */
+.sommaire{max-width:620px;margin:0 auto;padding:56px 18px 90px}
+.sommaire h1{font-size:27px;margin:0 0 10px}
+.sommaire p{color:var(--mut);margin:0 0 28px}
+.sommaire a.carte{
+  display:block;background:#fff;border:1px solid var(--trait);border-radius:14px;
+  padding:22px 24px;margin-bottom:14px;text-decoration:none;
+}
+.sommaire a.carte:hover{border-color:var(--mut)}
+.sommaire a.carte strong{display:block;font-size:17px;margin-bottom:3px}
+.sommaire a.carte span{color:var(--mut);font-size:14px}

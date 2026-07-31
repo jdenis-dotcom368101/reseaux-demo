@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galerie Kessler-Roy — LinkedIn (maquette)</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="li">
+
+<div class="avis">
+  <strong>Maquette</strong> — mur de démonstration du Studio Contenu.
+  Ce n'est pas LinkedIn, et aucun de ces comptes n'existe.
+</div>
+
+<div class="page">
+
+  <nav class="reseaux">
+    <a href="../instagram/">Instagram</a>
+    <a href="../linkedin/" aria-current="page">LinkedIn</a>
+    <a href="../x/">X</a>
+  </nav>
+
+  <div class="profil">
+    <div class="avatar">KR</div>
+    <div>
+      <h1>Galerie Kessler-Roy</h1>
+      <p class="handle">Art contemporain · Paris 3ᵉ</p>
+      <p class="stats">1 480 abonnés · Galerie ouverte en 2011</p>
+    </div>
+  </div>
+
+  <div id="fil">
+            <!-- STUDIO_POSTS -->
+  </div>
+
+  <div class="vide" id="vide">
+    Aucune publication pour le moment.<br>
+    Les posts générés dans l'onglet <strong>Promo</strong> du Studio arrivent ici.
+  </div>
+
+</div>
+
+<script>
+  // Le bandeau « aucune publication » disparaît dès le premier post inséré par le Studio.
+  if (document.querySelectorAll('#fil .post').length) {
+    document.getElementById('vide').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
