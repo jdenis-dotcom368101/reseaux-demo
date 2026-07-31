@@ -3,49 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>solene.norvenne — Instagram (maquette)</title>
+<title>Instagram</title>
 <meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#fff;color:#000;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  font-size:14px;line-height:18px;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+
+.maquette{
+  position:fixed;bottom:14px;right:14px;z-index:99;
+  background:rgba(0,0,0,.78);color:#fff;font-size:11px;letter-spacing:.03em;
+  padding:7px 12px;border-radius:14px;
+}
+
+/* ---------- Rail de navigation ---------- */
+.rail{
+  position:fixed;top:0;left:0;bottom:0;width:245px;
+  border-right:1px solid #dbdbdb;padding:8px 12px 20px;background:#fff;
+}
+.rail .logo{
+  font-family:'Segoe Script','Snell Roundhand','Brush Script MT',cursive;
+  font-size:29px;padding:25px 12px 16px;letter-spacing:.3px;
+}
+.rail nav a{
+  display:flex;align-items:center;gap:16px;padding:12px;border-radius:8px;
+  font-size:16px;line-height:20px;margin-bottom:4px;
+}
+.rail nav a:hover{background:#f2f2f2}
+.rail nav a.actif{font-weight:700}
+.rail .pied{position:absolute;bottom:20px;left:12px;right:12px}
+.rail .pied a{display:flex;align-items:center;gap:16px;padding:12px;border-radius:8px;font-size:16px}
+.rail .pied a:hover{background:#f2f2f2}
+
+/* ---------- Colonne centrale ---------- */
+.scene{margin-left:245px;display:flex;justify-content:center;gap:64px;padding:30px 20px 90px}
+.colonne{width:630px;max-width:100%}
+
+.stories{
+  display:flex;gap:14px;padding:0 0 16px;margin-bottom:16px;
+  border-bottom:1px solid #efefef;overflow:hidden;
+}
+.story{width:66px;text-align:center;flex:0 0 66px}
+.story .anneau{
+  width:66px;height:66px;border-radius:50%;padding:2px;
+  background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+}
+.story .anneau div{
+  width:100%;height:100%;border-radius:50%;border:2px solid #fff;
+  background:linear-gradient(135deg,#2b2b28,#6b5637);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;
+}
+.story span{display:block;font-size:12px;color:#262626;margin-top:6px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ---------- Publication ---------- */
+.post{margin-bottom:12px;padding-bottom:16px;border-bottom:1px solid #efefef}
+.post .tete{display:flex;align-items:center;gap:12px;padding:4px 0 12px}
+.post .tete .anneau{
+  width:42px;height:42px;border-radius:50%;padding:2px;flex:0 0 42px;
+  background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+}
+.post .tete .anneau div{
+  width:100%;height:100%;border-radius:50%;border:2px solid #fff;
+  background:linear-gradient(135deg,#2b2b28,#6b5637);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;
+}
+.post .tete .qui{font-weight:600;font-size:14px}
+.post .tete .quand{color:#737373}
+.post .tete .quand:before{content:"· "}
+.post .tete .plus{margin-left:auto;font-weight:700;letter-spacing:1px}
+.post .visuel{border:1px solid #efefef;border-radius:4px;overflow:hidden;background:#fafafa}
+.post .visuel img{width:100%;height:auto;display:block}
+.post .actions{display:flex;align-items:center;gap:16px;padding:10px 0 6px}
+.post .actions .fin{margin-left:auto}
+.post .likes{font-weight:600;padding:2px 0 4px}
+.post .legende{white-space:pre-wrap;padding-bottom:4px}
+.post .legende b{font-weight:600;margin-right:5px}
+.post .lien{color:#00376b;word-break:break-all}
+.post .commentaires{color:#737373;padding:4px 0}
+.post .horodatage{color:#737373;font-size:10px;letter-spacing:.2px;text-transform:uppercase;padding-top:4px}
+
+/* ---------- Colonne de droite ---------- */
+.aside{width:319px;padding-top:4px}
+.aside .moi{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.aside .moi .av{
+  width:44px;height:44px;border-radius:50%;flex:0 0 44px;
+  background:linear-gradient(135deg,#2b2b28,#6b5637);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;
+}
+.aside .moi .nom{font-weight:600}
+.aside .moi .sous{color:#737373}
+.aside .moi .bascule{margin-left:auto;color:#0095f6;font-weight:600;font-size:12px}
+.aside h3{color:#737373;font-size:14px;font-weight:600;margin-bottom:12px}
+.aside .sugg{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.aside .sugg .av{
+  width:32px;height:32px;border-radius:50%;flex:0 0 32px;background:#dbdbdb;
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#555;
+}
+.aside .sugg .nom{font-weight:600;font-size:14px}
+.aside .sugg .sous{color:#737373;font-size:12px}
+.aside .sugg .act{margin-left:auto;color:#0095f6;font-weight:600;font-size:12px}
+.aside .legal{color:#c7c7c7;font-size:12px;line-height:16px;margin-top:22px}
+
+.vide{
+  border:1px dashed #dbdbdb;border-radius:8px;padding:44px 24px;text-align:center;
+  color:#737373;font-size:14px;
+}
+
+@media(max-width:1160px){.aside{display:none}}
+@media(max-width:900px){.rail{display:none}.scene{margin-left:0}}
+</style>
 </head>
-<body class="ig">
+<body>
 
-<div class="avis">
-  <strong>Maquette</strong> — mur de démonstration du Studio Contenu.
-  Ce n'est pas Instagram, et aucun de ces comptes n'existe.
-</div>
-
-<div class="page">
-
-  <nav class="reseaux">
-    <a href="../instagram/" aria-current="page">Instagram</a>
-    <a href="../linkedin/">LinkedIn</a>
-    <a href="../x/">X</a>
+<aside class="rail">
+  <div class="logo">Instagram</div>
+  <nav>
+    <a class="actif" href="./">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.8"><path d="M3 10.2 12 3l9 7.2V21H3z"/></svg>
+      Accueil</a>
+    <a href="./">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      Recherche</a>
+    <a href="./">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.8"><path d="m21 3-7 18-3-8-8-3z"/></svg>
+      Explorer</a>
+    <a href="./">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="m10 8 6 4-6 4z"/></svg>
+      Reels</a>
+    <a href="./">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.8"><path d="M4 5h16v11H8l-4 4z"/></svg>
+      Messages</a>
+    <a href="./">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.8"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.6-7 9-7 9z"/></svg>
+      Notifications</a>
+    <a href="./">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg>
+      Créer</a>
+    <a href="./">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>
+      Profil</a>
   </nav>
+  <div class="pied">
+    <a href="../">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      Plus</a>
+  </div>
+</aside>
 
-  <div class="profil">
-    <div class="avatar">SN</div>
-    <div>
-      <h1>Solène Norvenne</h1>
-      <p class="handle">@solene.norvenne</p>
-      <p class="stats">11 publications · 3 214 abonnés · Plasticienne, verre et bronze</p>
+<div class="scene">
+
+  <main class="colonne">
+
+    <div class="stories">
+      <div class="story"><div class="anneau"><div>SN</div></div><span>solene.no…</span></div>
+      <div class="story"><div class="anneau"><div>KR</div></div><span>kesslerroy</span></div>
+      <div class="story"><div class="anneau"><div>ML</div></div><span>meisenthal</span></div>
+      <div class="story"><div class="anneau"><div>ÉL</div></div><span>editionsloco</span></div>
+      <div class="story"><div class="anneau"><div>FR</div></div><span>fracnouv…</span></div>
+      <div class="story"><div class="anneau"><div>AT</div></div><span>atelier.feu</span></div>
     </div>
-  </div>
 
-  <div id="fil">
+    <div id="fil">
             <!-- STUDIO_POSTS -->
-  </div>
+    </div>
 
-  <div class="vide" id="vide">
-    Aucune publication pour le moment.<br>
-    Les posts générés dans l'onglet <strong>Promo</strong> du Studio arrivent ici.
-  </div>
+    <div class="vide" id="vide">
+      Aucune publication pour le moment.<br>
+      Les posts générés dans l'onglet Promo du Studio arrivent ici.
+    </div>
+
+  </main>
+
+  <aside class="aside">
+    <div class="moi">
+      <div class="av">SN</div>
+      <div><div class="nom">solene.norvenne</div><div class="sous">Solène Norvenne</div></div>
+      <div class="bascule">Changer</div>
+    </div>
+    <h3>Suggestions pour vous</h3>
+    <div class="sugg"><div class="av">KR</div><div><div class="nom">kesslerroy</div><div class="sous">Suivi(e) par meisenthal…</div></div><div class="act">Suivre</div></div>
+    <div class="sugg"><div class="av">ÉL</div><div><div class="nom">editionsloco</div><div class="sous">Suggestion pour vous</div></div><div class="act">Suivre</div></div>
+    <div class="sugg"><div class="av">CV</div><div><div class="nom">centre.verre</div><div class="sous">Suivi(e) par atelier.feu</div></div><div class="act">Suivre</div></div>
+    <div class="sugg"><div class="av">RT</div><div><div class="nom">revue.trames</div><div class="sous">Suggestion pour vous</div></div><div class="act">Suivre</div></div>
+    <p class="legal">Page de démonstration · Studio Contenu<br>Aucun de ces comptes n'existe.</p>
+  </aside>
 
 </div>
+
+<div class="maquette">Maquette — ce n'est pas Instagram</div>
 
 <script>
-  // Le bandeau « aucune publication » disparaît dès le premier post inséré par le Studio.
   if (document.querySelectorAll('#fil .post').length) {
     document.getElementById('vide').style.display = 'none';
   }
