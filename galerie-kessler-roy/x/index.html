@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accueil / X</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#000;color:#e7e9ea;
+  font-family:-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  font-size:15px;line-height:20px;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+
+.maquette{
+  position:fixed;bottom:14px;right:14px;z-index:99;
+  background:rgba(255,255,255,.14);color:#e7e9ea;font-size:11px;letter-spacing:.03em;
+  padding:7px 12px;border-radius:14px;
+}
+
+.scene{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:88px minmax(0,600px) 290px;gap:0}
+
+/* ---------- Rail ---------- */
+.rail{position:sticky;top:0;height:100vh;padding:6px 8px;border-right:1px solid #2f3336}
+.rail .marque{width:50px;height:50px;display:flex;align-items:center;justify-content:center;
+  font-size:26px;font-weight:700;border-radius:50%}
+.rail a{display:flex;align-items:center;justify-content:center;width:50px;height:50px;
+  border-radius:50%;margin-bottom:4px}
+.rail a:hover{background:#181818}
+.rail svg{stroke:#e7e9ea;fill:none;stroke-width:1.8}
+.rail .plume{
+  width:50px;height:50px;border-radius:50%;background:#eff3f4;color:#0f1419;
+  display:flex;align-items:center;justify-content:center;margin-top:10px;font-size:22px;
+}
+
+/* ---------- Colonne centrale ---------- */
+.colonne{border-right:1px solid #2f3336;min-height:100vh}
+.entete{
+  position:sticky;top:0;z-index:10;background:rgba(0,0,0,.72);backdrop-filter:blur(12px);
+  border-bottom:1px solid #2f3336;
+}
+.entete h1{font-size:20px;font-weight:700;padding:14px 16px}
+.entete .onglets{display:flex}
+.entete .onglets a{
+  flex:1;text-align:center;padding:16px 0 13px;color:#71767b;font-weight:500;font-size:15px;
+}
+.entete .onglets a.actif{color:#e7e9ea;font-weight:700;box-shadow:inset 0 -4px 0 #1d9bf0}
+
+.composer{display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid #2f3336}
+.composer .av{
+  width:40px;height:40px;border-radius:50%;flex:0 0 40px;
+  background:linear-gradient(135deg,#2b2b28,#6b5637);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;
+}
+.composer .champ{flex:1;color:#71767b;font-size:20px;padding-top:8px}
+
+/* ---------- Publication ---------- */
+.post{display:flex;gap:12px;padding:12px 16px;border-bottom:1px solid #2f3336}
+.post .av{
+  width:40px;height:40px;border-radius:50%;flex:0 0 40px;
+  background:linear-gradient(135deg,#2b2b28,#6b5637);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;
+}
+.post .corps{flex:1;min-width:0}
+.post .ligne{display:flex;align-items:center;gap:4px;font-size:15px}
+.post .ligne b{font-weight:700}
+.post .ligne .certif{color:#1d9bf0}
+.post .ligne .gris{color:#71767b;font-weight:400}
+.post .ligne .plus{margin-left:auto;color:#71767b;font-weight:700;letter-spacing:1px}
+.post .texte{white-space:pre-wrap;padding:2px 0 4px;font-size:15px;line-height:20px}
+.post .lien{color:#1d9bf0;word-break:break-all}
+.post .visuel{margin-top:12px;border:1px solid #2f3336;border-radius:16px;overflow:hidden}
+.post .visuel img{width:100%;display:block}
+.post .actions{display:flex;justify-content:space-between;max-width:425px;margin-top:12px;color:#71767b;font-size:13px}
+.post .actions span{display:flex;align-items:center;gap:6px}
+.post .actions svg{stroke:currentColor;fill:none;stroke-width:1.7}
+
+/* ---------- Colonne de droite ---------- */
+.droite{padding:6px 0 0 26px}
+.droite .recherche{
+  background:#202327;border-radius:9999px;padding:11px 18px;color:#71767b;margin-bottom:14px;
+}
+.bloc{background:#16181c;border-radius:16px;margin-bottom:14px;overflow:hidden}
+.bloc h2{font-size:20px;font-weight:800;padding:12px 16px 4px}
+.bloc .item{padding:10px 16px}
+.bloc .item .sur{color:#71767b;font-size:13px}
+.bloc .item .quoi{font-weight:700;font-size:15px}
+.bloc .item .nb{color:#71767b;font-size:13px}
+.bloc .item:hover{background:#1c1f23}
+.legal{color:#71767b;font-size:13px;padding:4px 16px 30px;line-height:18px}
+
+.vide{
+  border:1px dashed #2f3336;border-radius:16px;margin:16px;padding:44px 24px;
+  text-align:center;color:#71767b;
+}
+
+@media(max-width:1000px){.droite{display:none}.scene{grid-template-columns:88px minmax(0,600px)}}
+@media(max-width:700px){.rail{display:none}.scene{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="scene">
+
+  <nav class="rail">
+    <div class="marque">𝕏</div>
+    <a href="./"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg></a>
+    <a href="./"><svg width="26" height="26" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
+    <a href="./"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M6 9a6 6 0 1 1 12 0c0 5 2 6 2 6H4s2-1 2-6z"/><path d="M10 19a2 2 0 0 0 4 0"/></svg></a>
+    <a href="./"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M3 5h18v13H8l-5 4z"/></svg></a>
+    <a href="./"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg></a>
+    <a href="../../"><svg width="26" height="26" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg></a>
+    <div class="plume">✎</div>
+  </nav>
+
+  <main class="colonne">
+    <div class="entete">
+      <h1>Accueil</h1>
+      <div class="onglets">
+        <a class="actif" href="./">Pour vous</a>
+        <a href="./">Abonnements</a>
+      </div>
+    </div>
+
+    <div class="composer">
+      <div class="av">KR</div>
+      <div class="champ">Quoi de neuf ?</div>
+    </div>
+
+    <div id="fil">
+            <!-- STUDIO_POSTS -->
+    </div>
+
+    <div class="vide" id="vide">
+      Aucune publication pour le moment.<br>
+      Les posts générés dans l'onglet Promo du Studio arrivent ici.
+    </div>
+  </main>
+
+  <aside class="droite">
+    <div class="recherche">Rechercher</div>
+    <div class="bloc">
+      <h2>Tendances</h2>
+      <div class="item"><div class="sur">Art · Tendance</div><div class="quoi">#ArtContemporain</div><div class="nb">1 842 posts</div></div>
+      <div class="item"><div class="sur">Culture · Tendance</div><div class="quoi">Accrochage</div><div class="nb">964 posts</div></div>
+      <div class="item"><div class="sur">Paris · Tendance</div><div class="quoi">#Vernissage</div><div class="nb">3 217 posts</div></div>
+      <div class="item"><div class="sur">Art · Tendance</div><div class="quoi">Cartel</div><div class="nb">412 posts</div></div>
+    </div>
+    <div class="bloc">
+      <h2>Suggestions</h2>
+      <div class="item"><div class="quoi">François Weber</div><div class="nb">@francoisweber</div></div>
+      <div class="item"><div class="quoi">Revue Trames</div><div class="nb">@revuetrames</div></div>
+    </div>
+    <p class="legal">Page de démonstration · Studio Contenu.<br>Aucun de ces comptes n'existe.</p>
+  </aside>
+
+</div>
+
+<div class="maquette">Maquette — ce n'est pas X</div>
+
+<script>
+  if (document.querySelectorAll('#fil .post').length) {
+    document.getElementById('vide').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>

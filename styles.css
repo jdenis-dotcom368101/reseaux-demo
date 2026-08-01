@@ -90,6 +90,8 @@ a{color:inherit}
 .sommaire{max-width:620px;margin:0 auto;padding:56px 18px 90px}
 .sommaire h1{font-size:27px;margin:0 0 10px}
 .sommaire p{color:var(--mut);margin:0 0 28px}
+.sommaire h2{font-size:13px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--mut);font-weight:600;margin:32px 0 12px}
 .sommaire a.carte{
   display:block;background:#fff;border:1px solid var(--trait);border-radius:14px;
   padding:22px 24px;margin-bottom:14px;text-decoration:none;
